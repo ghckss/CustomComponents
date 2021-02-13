@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
-import { Home, RatioBarShowcase } from "./containers";
+import { ExpandableTableShowcase, Home, RatioBarShowcase } from "./containers";
 
 class App extends Component {
   render() {
@@ -8,6 +8,7 @@ class App extends Component {
       <div className="App">
         <Route exact path="/" component={Home} />
         <Route path="/ratioBar" component={RatioBarShowcase} />
+        <Route path="/table-expandable" component={ExpandableTableShowcase} />
       </div>
     );
   }

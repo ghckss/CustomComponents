@@ -1,3 +1,4 @@
+import ExpandableTable from "./ExpandableTable";
 import RatioBar from "./RatioBar";
 
-export { RatioBar };
+export { ExpandableTable, RatioBar };
