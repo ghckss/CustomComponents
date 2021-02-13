@@ -1,7 +1,7 @@
 import React from "react";
 import "./index.scss";
 
-const RatioBar = ({ ratios, colors, text = true }) => {
+const RatioBar = ({ ratios, colors, text = false, tooltip = false }) => {
   let sum = 0;
 
   const currentColors =
@@ -26,13 +26,19 @@ const RatioBar = ({ ratios, colors, text = true }) => {
         key={index}
         className="bar"
         style={{ width: `${ratio}%`, backgroundColor }}
+        show-tooltip={`${tooltip}`}
+        data-tooltip-text={`${ratio}%`}
       >
         {text ? `${ratio}%` : ""}
       </div>
     );
   });
 
-  return <div className="ratio-bar">{ratioBar}</div>;
+  return (
+    <div className="ratio-bar-component">
+      <div className="ratio-bar">{ratioBar}</div>
+    </div>
+  );
 };
 
 export default RatioBar;

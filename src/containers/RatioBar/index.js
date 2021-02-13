@@ -8,14 +8,18 @@ const RatioBarShowcase = () => {
 
   return (
     <div>
-      <h2 className="title">RatioBar</h2>
+      <h2 className="title">RatioBar with text</h2>
       <div className="row">
         <div className="type">RatioBar</div>
-        <RatioBar ratios={ratios} colors={colors} />
+        <RatioBar ratios={ratios} colors={colors} text={true} />
       </div>
       <div className="row">
         <div className="type">RatioBar without text</div>
         <RatioBar ratios={ratios} colors={colors} text={false} />
+      </div>
+      <div className="row">
+        <div className="type">RatioBar with text and tooltip</div>
+        <RatioBar ratios={ratios} colors={colors} text={true} tooltip={true} />
       </div>
     </div>
   );
