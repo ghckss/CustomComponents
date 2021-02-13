@@ -1,7 +1,7 @@
 import React from "react";
 import "./index.scss";
 
-const RatioBar = ({ ratios, colors }) => {
+const RatioBar = ({ ratios, colors, text = true }) => {
   let sum = 0;
 
   const currentColors =
@@ -27,7 +27,7 @@ const RatioBar = ({ ratios, colors }) => {
         className="bar"
         style={{ width: `${ratio}%`, backgroundColor }}
       >
-        {`${ratio}%`}
+        {text ? `${ratio}%` : ""}
       </div>
     );
   });

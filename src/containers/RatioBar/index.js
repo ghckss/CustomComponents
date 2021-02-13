@@ -10,8 +10,12 @@ const RatioBarShowcase = () => {
     <div>
       <h2 className="title">RatioBar</h2>
       <div className="row">
-        <div className="type">RatioBar1</div>
+        <div className="type">RatioBar</div>
         <RatioBar ratios={ratios} colors={colors} />
+      </div>
+      <div className="row">
+        <div className="type">RatioBar without text</div>
+        <RatioBar ratios={ratios} colors={colors} text={false} />
       </div>
     </div>
   );
