@@ -1,4 +1,5 @@
+import ExpandableTableShowcase from "./ExpandableTable";
 import Home from "./Home";
 import RatioBarShowcase from "./RatioBar";
 
-export { Home, RatioBarShowcase };
+export { ExpandableTableShowcase, Home, RatioBarShowcase };

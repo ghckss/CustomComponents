@@ -5,7 +5,12 @@ const Home = () => {
   return (
     <div>
       <h2>
-        <Link to="/ratioBar">RatioBar</Link>
+        <div>
+          <Link to="/ratio-bar">RatioBar</Link>
+        </div>
+        <div>
+          <Link to="/table-expandable">ExpandableTable</Link>
+        </div>
       </h2>
     </div>
   );
