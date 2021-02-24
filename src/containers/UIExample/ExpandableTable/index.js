@@ -1,5 +1,5 @@
 import React from "react";
-import { ExpandableTable } from "../../components";
+import { ExpandableTable } from "../../../components/UIExample";
 import "./index.scss";
 
 const ExpandableTableShowcase = () => {
