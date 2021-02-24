@@ -11,7 +11,7 @@
     cursor: pointer;
   }
   &__name,
-  &__item {
+  &__link {
     display: flex;
     align-items: center;
     height: 48px;
@@ -25,7 +25,7 @@
   &__name {
     justify-content: space-between;
   }
-  &__item {
+  &__link {
     padding-left: calc(1rem + 16px);
   }
   &__item--hide {

@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import "./Sidebar.scss";
 
 const Sidebar = () => {
@@ -33,8 +34,16 @@ const Sidebar = () => {
           UI 컴포넌트
           <i className="fas fa-chevron-right"></i>
         </div>
-        <div className="sidebar__item sidebar__item--hide">비율 게이지</div>
-        <div className="sidebar__item sidebar__item--hide">계층형 테이블</div>
+        <div className="sidebar__item sidebar__item--hide">
+          <NavLink className="sidebar__link" to="/widget/ratio-bar">
+            비율 게이지
+          </NavLink>
+        </div>
+        <div className="sidebar__item sidebar__item--hide">
+          <NavLink className="sidebar__link" to="/widget/table-expandable">
+            계층형 테이블
+          </NavLink>
+        </div>
       </div>
       <div className="sidebar__dropdown" onClick={toggleSidebarItem}>
         <div className="sidebar__name">
