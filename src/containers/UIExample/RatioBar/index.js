@@ -1,5 +1,5 @@
 import React from "react";
-import { RatioBar } from "../../components";
+import { RatioBar } from "../../../components/UIExample";
 import "./index.scss";
 
 const RatioBarShowcase = () => {
