@@ -1,0 +1,15 @@
+.header {
+  height: 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 5px 5px 5px 5px gray;
+  .menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &__item {
+      margin: 0 8px;
+    }
+  }
+}
