@@ -18,14 +18,14 @@ const Layout = () => {
           }}
         />
 
-        <Route path="/widget/ratio-bar" render={RatioBarShowcase} />
+        <Route path="/widget/ratio-bar" component={RatioBarShowcase} />
         <Route
           path="/widget/table-expandable"
-          render={ExpandableTableShowcase}
+          component={ExpandableTableShowcase}
         />
 
-        <Route path="/skill/debounce" render={Debounce} />
-        <Route path="/skill/throttling" render={Throttling} />
+        <Route path="/skill/debounce" component={Debounce} />
+        <Route path="/skill/throttling" component={Throttling} />
       </Content>
     </div>
   );
