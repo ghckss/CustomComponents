@@ -16,10 +16,10 @@ const Layout = () => {
             return <div className="home">HOME</div>;
           }}
         />
-        <Route path="/widget/ratio-bar" component={RatioBarShowcase} />
+        <Route path="/widget/ratio-bar" render={RatioBarShowcase} />
         <Route
           path="/widget/table-expandable"
-          component={ExpandableTableShowcase}
+          render={ExpandableTableShowcase}
         />
       </Content>
     </div>
