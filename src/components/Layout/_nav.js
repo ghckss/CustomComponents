@@ -16,7 +16,16 @@ const navs = [
   {
     name: "FE 스킬",
     active: false,
-    items: [],
+    items: [
+      {
+        name: "디바운싱",
+        to: "/skill/debounce",
+      },
+      {
+        name: "쓰로틀링",
+        to: "/skill/throttling",
+      },
+    ],
   },
 ];
 
