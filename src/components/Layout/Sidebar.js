@@ -1,58 +1,67 @@
 import React from "react";
+import produce from "immer";
 import { NavLink } from "react-router-dom";
+import { navs } from "./_nav";
 import "./Sidebar.scss";
 
 const Sidebar = () => {
-  const toggleSidebarItem = (e) => {
-    if (e.target.classList.contains("sidebar__item")) {
-      return;
-    }
-    const target = e.target.closest(".sidebar__dropdown");
-    target.classList.toggle("sidebar__dropdown--active");
+  const [sidebarList, setSidebarList] = React.useState([]);
 
-    changeIconDirection(target);
-    const sidebarItems = target.querySelectorAll(".sidebar__item");
+  React.useEffect(() => {
+    setSidebarList(navs);
+  }, []);
 
-    Array.from(sidebarItems).forEach((item) => {
-      item.classList.toggle("sidebar__item--hide");
+  const updateSidebarList = (index) => {
+    setSidebarList(
+      produce(sidebarList, (draftState) => {
+        draftState.forEach((draft) => (draft.active = false));
+        draftState[index].active = !sidebarList[index].active;
+      })
+    );
+  };
+
+  const renderSidebarItems = (dropdown) => {
+    const items = dropdown.items;
+    if (!items) return;
+    return items.map((item, index) => {
+      return (
+        <div
+          key={index}
+          className={`sidebar__item ${
+            dropdown.active ? "" : "sidebar__item--hide"
+          }`}
+        >
+          <NavLink
+            className="sidebar__link"
+            activeClassName="sidebar__link--active"
+            to={item.to}
+          >
+            {item.name}
+          </NavLink>
+        </div>
+      );
     });
   };
-  const changeIconDirection = (target) => {
-    const icon = target.querySelector("i.fas");
-    if (icon.classList.contains("fa-chevron-down")) {
-      icon.classList.remove("fa-chevron-down");
-      icon.classList.add("fa-chevron-right");
-    } else if (icon.classList.contains("fa-chevron-right")) {
-      icon.classList.remove("fa-chevron-right");
-      icon.classList.add("fa-chevron-down");
-    }
-  };
-  return (
-    <nav className="sidebar">
-      <div className="sidebar__dropdown" onClick={toggleSidebarItem}>
+  const sidebarDropdown = sidebarList.map((dropdown, index) => {
+    return (
+      <div
+        key={index}
+        className="sidebar__dropdown"
+        onClick={() => updateSidebarList(index)}
+      >
         <div className="sidebar__name">
-          UI 컴포넌트
-          <i className="fas fa-chevron-right"></i>
+          {dropdown.name}
+          <i
+            className={`fas ${
+              dropdown.active ? "fa-chevron-down" : "fa-chevron-right"
+            }`}
+          ></i>
         </div>
-        <div className="sidebar__item sidebar__item--hide">
-          <NavLink className="sidebar__link" to="/widget/ratio-bar">
-            비율 게이지
-          </NavLink>
-        </div>
-        <div className="sidebar__item sidebar__item--hide">
-          <NavLink className="sidebar__link" to="/widget/table-expandable">
-            계층형 테이블
-          </NavLink>
-        </div>
+        {renderSidebarItems(dropdown)}
       </div>
-      <div className="sidebar__dropdown" onClick={toggleSidebarItem}>
-        <div className="sidebar__name">
-          FE 스킬
-          <i className="fas fa-chevron-right"></i>
-        </div>
-      </div>
-    </nav>
-  );
+    );
+  });
+  return <nav className="sidebar">{sidebarDropdown}</nav>;
 };
 
 export default Sidebar;
