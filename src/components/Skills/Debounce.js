@@ -10,12 +10,16 @@ const Debounce = () => {
   const handleInputValue = (e) => {
     setInputValue(e.target.value);
     setDeactiveCount(deactiveCount + 1);
+    debounce();
+  };
+
+  const debounce = () => {
     if (timer) {
       clearTimeout(timer);
       setTimer(timer);
     }
     setTimer(
-      setTimeout(function () {
+      setTimeout(() => {
         setActiveCount(activeCount + 1);
       }, 200)
     );

@@ -10,7 +10,10 @@ const Throttling = () => {
   const handleInputValue = (e) => {
     setInputValue(e.target.value);
     setDeactiveCount(deactiveCount + 1);
+    throttling();
+  };
 
+  const throttling = () => {
     if (!timer) {
       setTimer(
         setTimeout(function () {
