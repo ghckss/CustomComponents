@@ -8,7 +8,7 @@ const RatioBarShowcase = () => {
 
   return (
     <div>
-      <h2 className="title">RatioBar with text</h2>
+      <h2 className="title">RatioBar</h2>
       <div className="row">
         <div className="type">RatioBar</div>
         <RatioBar ratios={ratios} colors={colors} text={true} />

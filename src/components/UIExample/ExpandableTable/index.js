@@ -67,7 +67,7 @@ const ExpandableTable = ({ headers, data }) => {
 
   const tableHeader = headers.map((header, index) => {
     return (
-      <div key={index} className={`cell header column-${index}`}>
+      <div key={index} className={`cell table-header column-${index}`}>
         {header.name}
       </div>
     );
