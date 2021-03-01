@@ -1,0 +1,33 @@
+.throttling {
+  margin: 0 10px;
+  &__input {
+    input {
+      width: 100%;
+      border: 0px;
+      border-bottom: 1px solid black;
+    }
+    input:focus {
+      outline-color: white;
+      border-bottom: 2px solid black;
+    }
+  }
+  .result {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &__container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 50%;
+      height: 400px;
+    }
+    &__title {
+      font-size: 18px;
+    }
+    &__value {
+      font-size: 72px;
+    }
+  }
+}
