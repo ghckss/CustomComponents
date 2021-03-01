@@ -99,6 +99,7 @@ const ExpandableTableShowcase = () => {
   ];
   return (
     <div>
+      <h2 className="title">ExpandableTable</h2>
       <ExpandableTable
         headers={[
           {
