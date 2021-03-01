@@ -48,6 +48,13 @@ const Debounce = () => {
 
   return (
     <div className="debouncing">
+      <h1>Debouncing</h1>
+      <div className="debouncing__description">
+        <h2>Debouncing 이란?</h2>
+        <span>자바스크립트의 이벤트를 성능상의 이유로 제어하기 위한 기법</span>
+        <br />
+        <span>이벤트를 그룹화하여 하나의 이벤트만 발생하도록 한다.</span>
+      </div>
       <div className="debouncing__title">
         <h2>Debouncing 비교 테스트</h2>
       </div>

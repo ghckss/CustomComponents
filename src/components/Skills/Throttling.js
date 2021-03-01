@@ -47,6 +47,13 @@ const Throttling = () => {
 
   return (
     <div className="throttling">
+      <h1>Throttling</h1>
+      <div className="debouncing__description">
+        <h2>Throttling 이란?</h2>
+        <span>자바스크립트의 이벤트를 성능상의 이유로 제어하기 위한 기법</span>
+        <br />
+        <span>이벤트를 일정한 주기가 지나야 다시 발생하도록 한다</span>
+      </div>
       <div className="throttling__title">
         <h2>Throttling 비교 테스트</h2>
       </div>
