@@ -14,13 +14,14 @@
   .result {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     &__container {
+      width: 50%;
+    }
+    &__counter {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      width: 50%;
       height: 400px;
     }
     &__title {
@@ -28,6 +29,9 @@
     }
     &__value {
       font-size: 72px;
+    }
+    &__list {
+      margin-left: 15%;
     }
   }
 }

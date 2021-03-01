@@ -1,27 +1,48 @@
 import React from "react";
+import produce from "immer";
 import "./Throttling.scss";
 
 const Throttling = () => {
   const [timer, setTimer] = React.useState(null);
   const [inputValue, setInputValue] = React.useState("");
+
   const [activeCount, setActiveCount] = React.useState(0);
   const [deactiveCount, setDeactiveCount] = React.useState(0);
+
+  const [activeKeyword, setActiveKeyword] = React.useState([]);
+  const [deactiveKeyword, setDeactiveKeyword] = React.useState([]);
 
   const handleInputValue = (e) => {
     setInputValue(e.target.value);
     setDeactiveCount(deactiveCount + 1);
-    throttling();
+    setDeactiveKeyword(
+      produce(deactiveKeyword, (draftState) => {
+        draftState.push(e.target.value);
+      })
+    );
+    throttling(e);
   };
 
-  const throttling = () => {
+  const throttling = (e) => {
     if (!timer) {
       setTimer(
         setTimeout(function () {
           setTimer(null);
           setActiveCount(activeCount + 1);
+          setActiveKeyword(
+            produce(activeKeyword, (draftState) => {
+              draftState.push(e.target.value);
+            })
+          );
         }, 200)
       );
     }
+  };
+
+  const renderThrottlingKeywords = (keywords) => {
+    return keywords.map((keyword, index) => {
+      return <li key={index}>{keyword}</li>;
+    });
   };
 
   return (
@@ -39,14 +60,24 @@ const Throttling = () => {
       </div>
       <div className="result throttling__result">
         <div className="result__container result__deactive">
-          <div className="result__title">
-            Throttling 미 적용시 API 호출 횟수
+          <div className="result__counter">
+            <div className="result__title">
+              Throttling 미 적용시 API 호출 횟수
+            </div>
+            <div className="result__value">{deactiveCount}</div>
           </div>
-          <div className="result__value">{deactiveCount}</div>
+          <div className="result__list">
+            {renderThrottlingKeywords(deactiveKeyword)}
+          </div>
         </div>
         <div className="result__container result__active">
-          <div className="result__title">Throttling 적용시 API 호출 횟수</div>
-          <div className="result__value">{activeCount}</div>
+          <div className="result__counter">
+            <div className="result__title">Throttling 적용시 API 호출 횟수</div>
+            <div className="result__value">{activeCount}</div>
+          </div>
+          <div className="result__list">
+            {renderThrottlingKeywords(activeKeyword)}
+          </div>
         </div>
       </div>
     </div>
