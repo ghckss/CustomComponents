@@ -1,0 +1,46 @@
+.throttling {
+  margin: 0 10px;
+  &__title {
+    margin: 40px 0 0 60px;
+  }
+  &__input {
+    input {
+      width: 80%;
+      margin-left: 60px;
+      border: 0px;
+      border-bottom: 1px solid black;
+    }
+    input:focus {
+      outline-color: white;
+      border-bottom: 2px solid black;
+    }
+  }
+  &__description {
+    margin: 40px 0 0 60px;
+    line-height: 35px;
+  }
+  .result {
+    display: flex;
+    justify-content: space-between;
+    &__container {
+      width: 50%;
+    }
+    &__counter {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 300px;
+    }
+    &__title {
+      font-size: 18px;
+    }
+    &__value {
+      font-size: 72px;
+    }
+    &__list {
+      margin-bottom: 100px;
+      margin-left: 15%;
+    }
+  }
+}
